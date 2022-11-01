@@ -25,7 +25,7 @@ from ESCWA.region_control import confirm_region_status, del_region
 from utilities.exceptions import ESCWAException
 
 
-def delete_server(region_name='BANKDEMO', ip_address='127.0.0.1'):
+def delete_server(region_name='BANKVSAM', ip_address='127.0.0.1'):
     """ Deletes a Micro Focus server. """
     
     try:

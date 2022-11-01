@@ -26,7 +26,7 @@ from ESCWA.job_control import check_job, get_output
 from utilities.exceptions import ESCWAException
 
 
-def get_job_output(job_id, working_folder, ip_address='127.0.0.1', region_name='BANKDEMO'):
+def get_job_output(job_id, working_folder, ip_address='127.0.0.1', region_name='BANKVSAM'):
     try:
         check_res = check_job(region_name, ip_address, job_id)
     except ESCWAException as exc:

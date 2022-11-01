@@ -25,7 +25,7 @@ from ESCWA.job_control import submit_jcl, check_job
 from utilities.exceptions import ESCWAException
 
 
-def submit_job(jcl_file, working_folder, ip_address='127.0.0.1', region_name='BANKDEMO'):
+def submit_job(jcl_file, working_folder, ip_address='127.0.0.1', region_name='BANKVSAM'):
     try:
         submit_res = submit_jcl(region_name, ip_address, jcl_file)
     except ESCWAException as exc:

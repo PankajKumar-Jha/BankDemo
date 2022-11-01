@@ -25,7 +25,7 @@ from utilities.misc import parse_args
 from utilities.exceptions import ESCWAException
 
 
-def reset_region(region_name='BANKDEMO', ip_address='127.0.0.1', mins_allowed=1):
+def reset_region(region_name='BANKVSAM', ip_address='127.0.0.1', mins_allowed=1):
     try:
         mark_res = mark_region_stopped(region_name, ip_address)
     except ESCWAException as exc:

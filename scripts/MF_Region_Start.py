@@ -26,7 +26,7 @@ from ESCWA.region_control import confirm_region_status
 from utilities.exceptions import ESCWAException
 
 
-def start_server(region_name='BANKDEMO', ip_address='127.0.0.1', mins_allowed=1):
+def start_server(region_name='BANKVSAM', ip_address='127.0.0.1', mins_allowed=1):
     try:
         start_res = start_region(region_name, ip_address)
     except ESCWAException as exc:
