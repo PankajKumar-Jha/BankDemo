@@ -32,7 +32,7 @@ from utilities.misc import set_MF_environment, get_EclipsePluginsDir, get_Cobdir
 def build_programs():
 
     cwd = os.getcwd()
-    ANT_HOME = /usr/share/ant
+    ANT_HOME="/usr/share/ant"
 
     main_configfile = os.path.join(cwd, 'config', 'demo.json')
     main_config = read_json(main_configfile)
