@@ -29,7 +29,7 @@ from utilities.input import read_json, read_txt
 from utilities.output import write_json, write_log 
 from utilities.filesystem import create_new_system, deploy_application, deploy_system_modules, deploy_vsam_data, deploy_partitioned_data, dbfhdeploy_vsam_data
 
-from ESCWA.mfds_config import add_mfds_to_list, check_mfds_list
+from ESCWA.mfds_config import add_mfds_to_list, check_mfds_list, amend_mfds_port
 from ESCWA.region_control import add_region, start_region, del_region, confirm_region_status, stop_region
 from ESCWA.region_config import update_region, update_region_attribute, update_alias, add_initiator, add_datasets
 from ESCWA.comm_control import set_jes_listener
@@ -350,6 +350,14 @@ def create_region(main_configfile):
             write_log('Unable to add initiator.')
             write_log(exc)
             sys.exit(1)
+
+    try:
+        write_log ('DS Port being changed')
+        amend_mfds_port(ip_address)
+    except ESCWAException as exc:
+        write_log('Unable to amend DS port.')
+        write_log(exc)
+        sys.exit(1)
 
     #data_dir_1 hold the directory name, under the cwd that contains definitions of any datasets to be catalogued - this setting is optional
     catalog_datasets(cwd, region_name, ip_address, configuration_files, 'data_dir_1', None)

@@ -46,7 +46,7 @@ def check_mfds_list(ip_address):
 def add_mfds_to_list(ip_address, mfds_description):
     """ Add an MFDS to a Micro Focus server. """
 
-    uri = 'http://{}:10086/server/v1/config/mfds'.format(ip_address)
+    uri = 'http://{}:10086/server/v1/config/mfds/'.format(ip_address)
     req_headers = create_headers('CreateRegion', ip_address)
     req_body = {
         'MfdsHost': ip_address,
@@ -59,6 +59,29 @@ def add_mfds_to_list(ip_address, mfds_description):
 
     try:
         res = session.post(uri, headers=req_headers, json=req_body)
+        check_http_error(res)
+    except requests.exceptions.RequestException as exc:
+        raise ESCWAException('Unable to complete Add MFDS API request.') from exc
+    except HTTPException as exc:
+        raise ESCWAException('Unable to complete Add MFDS API request.') from exc
+
+    save_cookies(session.cookies)
+
+    return res
+
+def amend_mfds_port(ip_address):
+    """ Add an MFDS to a Micro Focus server. """
+
+    uri = 'http://{}:10086/server/v1/config/mfds/4ac7ed63-5ccd-4630-bbfc-c8df212abc6e'.format(ip_address)
+    req_headers = create_headers('CreateRegion', ip_address)
+    req_body = {
+        'MfdsPort': "30090"
+    }
+
+    session = get_session()
+
+    try:
+        res = session.put(uri, headers=req_headers, json=req_body)
         check_http_error(res)
     except requests.exceptions.RequestException as exc:
         raise ESCWAException('Unable to complete Add MFDS API request.') from exc
