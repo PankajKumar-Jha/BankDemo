@@ -74,7 +74,7 @@ TXT04   DFHMDF ATTRB=(ASKIP,NORM),                                     -
                COLOR=TURQUOISE,                                        -
                LENGTH=72,                                              -
                POS=(6,1),                                              -
-               INITIAL='Please identify yourself to the system by enter-
+               INITIAL='Please identify yourSelf to the system by enter-
                ing your user id'
 TXT05   DFHMDF ATTRB=(ASKIP,NORM),                                     -
                COLOR=TURQUOISE,                                        -
